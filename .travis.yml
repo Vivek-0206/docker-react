@@ -1,22 +1,12 @@
+sudo: required
+
 language: generic
 
 services:
   - docker
 
 before_install:
-  - docker build -t vivek2509/docker-react -f Dockerfile.dev .
+  - docker build -t Vivek-0206/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true vivek2509/docker-react npm test
-
-deploy:
-  provider: elasticbeanstalk
-  region: 'ap-south-1'
-  app: 'docker-react'
-  env: 'Dockerreact-env'
-  bucket_name: 'elasticbeanstalk-ap-south-1-690878869248'
-  bucket_path: 'docker-react'
-  on:
-    branch: main
-  access_key_id: $access_key_id
-  secret_access_key: $secret_access_key
+  - docker run -e CI=true Vivek-0206/docker-react npm test
